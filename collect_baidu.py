@@ -36,20 +36,18 @@ def get_real_url(urls):
     return real_urls
 
 
+
 if __name__ == '__main__':
     search_word_raw = 'inurl:asp?id='
     search_word = quote(search_word_raw)
     urls = []
     url = 'http://www.baidu.com/s?wd=' + search_word + '&pn='
-    for i in range(0, 410, 10):
+    for i in range(0, 10, 10):   # 410
         urls.append(url + str(i))
     print('请求的页面url为' + urls[0])
     real_urls = get_real_url(urls)
+    with open('D:/temp/asp.txt', 'a') as f:
+        f.write(str(real_urls))
     print(real_urls)
 
-    # 第二种解析方法
-    # tag3 = soup.find_all('h3')
-    # print(type(tag3))
-    # for h3 in tag3:
-    #     href = h3.find('a').get('href')
-    #     print(href)
+
